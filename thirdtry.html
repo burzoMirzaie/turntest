@@ -1,25 +1,65 @@
 <html>
 <head><title>turn test second try</title>
 
-<script type="text/javascript" src="js/jquery-3.0.0.js"></script>
+
+<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src="js/turn.js"></script>
-<script type="text/javascript" src="js/bookshelf.js"></script>
-<script type="text/javascript" src="js/all.js"></script>
-<script type="text/javascript" src="js/hash.js"></script>
-<script type="text/javascript" src="js/html5.js"></script>
-<script type="text/javascript" src="js/steve-jobs.js"></script>
-<script type="text/javascript" src="js/zoom.js"></script>
-<link type="text/css" href="style/steve-jobs.css" />
-<link type="text/css" href="style/default.css" />
-<link type="text/css" href="style/jquery.ui.css" />
-<link type="text/css" href="style/html5.css" />
-    
+
+<style type="text/css">
+    body{
+        background: #9988aa;
+    }
+    #book{
+        width: 1152px;
+        height: 400px;
+    }
+    #book .turn-page{
+        background-color: #ddd;
+        background-size: 100% 100%;
+    }
+</style>
 
 </head>
 
-<body>
+<body style="text-align:center">
 
- <div style="visibility: visible;" class="sample thumb1" sample="steve-jobs"></div> 
+    
+    
+<div id="book">
+    <div style="background-image:url('img/1.jpg');"></div>
+    <div style="background-image:url('img/2.jpg');"></div>
+    <div style="background-image:url('img/3.jpg');"></div>
+    <div style="background-image:url('img/4.jpg');"></div>
+    <div style="background-image:url('img/5.jpg');"></div>
+    <div style="background-image:url('img/6.jpg');"></div>
+    <div style="background-image:url('img/7.jpg');"></div>
+    <div style="background-image:url('img/8.jpg');"></div>
+</div>
+
+<script type="text/javascript">
+
+    $(window).ready(function(){
+        $('#book').turn({
+            display:'double',
+            acceleration: true,
+            elevation:50
+        });
+    });
+
+    $(window).bind('keydown',function(e){
+        if (e.keyCode==37)
+            $('#book').turn('previous');
+        else if (e.keyCode==39)
+            $('#book').turn('next');
+    });
+
+</script>
+
+
+
+
+		
+	
 
 </body>
 </html>
