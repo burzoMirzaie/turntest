@@ -1,23 +1,30 @@
 <html>
-<head><title>turn test second try</title>
+
+<head>
+    <title>turn test second try</title>
 
 
-<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
-<script type="text/javascript" src="js/turn.min.js"></script>
-
-<style type="text/css">
-    body{
-        background: #9999ff;
-    }
-    #book{
-        width: 100%;
-        height: 100%;
-    }
-    #book .turn-page{
-        background-color: #ddd;
-        background-size: 100% 100%;
-    }
-</style>
+    <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="js/turn.min.js"></script>
+    <script type="text/javascript" src="js/all.js"></script>
+    <script type="text/javascript" src="js/zoom.js"></script>
+    <script type="text/javascript" src="js/turn.min.js"></script>
+    <link type="text/css" href="style/jquery.ui.css"/>
+    <style type="text/css">
+        body {
+            background: #9999ff;
+        }
+        
+        #book {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #book .turn-page {
+            background-color: #ddd;
+            background-size: 100% 100%;
+        }
+    </style>
 
 </head>
 
@@ -43,7 +50,7 @@
 
 <script type="text/javascript">
 
-    $("#filetoopen").load("htmlpages/1.html");
+    $("#filetoopen" ).load("htmlpages/1.html");
     $("#filetoopen2").load("htmlpages/1.html");
     $("#filetoopen3").load("htmlpages/1.html");
     $("#filetoopen4").load("htmlpages/1.html");
@@ -51,26 +58,30 @@
     $("#filetoopen6").load("htmlpages/1.html");
     $("#filetoopen7").load("htmlpages/1.html");
     $("#filetoopen8").load("htmlpages/1.html");
-    $(window).ready(function(){
-        
-        $('#book').turn({
-            display:'double',
-            autoCenter: true,
-            acceleration: true,
-            elevation:0
-        });
-        
-         $('.container').zoom({
-            flipbook: $('.book')
-    });
-    });
+    $(window).ready(function () {
 
-    $(window).bind('keydown',function(e){
-        if (e.keyCode==37)
-            $('#book').turn('previous');
-        else if (e.keyCode==39)
-            $('#book').turn('next');
-    });
+            $('#book').turn({
+                display: 'double',
+                autoCenter: true,
+                acceleration: true,
+                elevation: 0
+            });
+
+        });
+        $('#book').click(function (e) {
+            var pos = {
+                x: e.pageX - $(this).offset().left,
+                y: e.pageY - $(this).offset().top
+            };
+            $('#book').zoom('zoomIn', pos);
+        });
+
+        $(window).bind('keydown', function (e) {
+            if (e.keyCode == 39)
+                $('#book').turn('previous');
+            else if (e.keyCode == 37)
+                $('#book').turn('next');
+        });
 
 </script>
 	
