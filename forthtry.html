@@ -49,7 +49,6 @@
 </div>
 
 <script type="text/javascript">
-
     $("#filetoopen" ).load("htmlpages/1.html");
     $("#filetoopen2").load("htmlpages/1.html");
     $("#filetoopen3").load("htmlpages/1.html");
@@ -58,23 +57,42 @@
     $("#filetoopen6").load("htmlpages/1.html");
     $("#filetoopen7").load("htmlpages/1.html");
     $("#filetoopen8").load("htmlpages/1.html");
+    
     $(window).ready(function () {
-
             $('#book').turn({
                 display: 'double',
                 autoCenter: true,
                 acceleration: true,
                 elevation: 0
             });
+        $('#book').
 
         });
-        $('#book').click(function (e) {
-            var pos = {
-                x: e.pageX - $(this).offset().left,
-                y: e.pageY - $(this).offset().top
-            };
-            $('#book').zoom('zoomIn', pos);
+    
+        $(window).bind('keydown', function (e) {
+            if (e.keyCode == 107)
+            {
+                    $('#book').click(function(e) {
+                    var pos = {
+                        x: e.pageX - $(this).offset().left,
+                        y: e.pageY - $(this).offset().top
+                    };
+                    $('#book').zoom('zoomIn', pos);
+                    });
+            }
+            else if (e.keyCode == 109)
+            {
+                    $('#book').click(function(e) {
+                    var pos = {
+                        x: e.pageX - $(this).offset().left,
+                        y: e.pageY - $(this).offset().top
+                    };
+                    $('#book').zoom('zoomOut', pos);
+                    });
+            }
+                
         });
+
 
         $(window).bind('keydown', function (e) {
             if (e.keyCode == 39)

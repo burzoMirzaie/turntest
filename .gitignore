@@ -1,25 +1,9 @@
 turn.js
-jquery-3.0.0.js
+
 *.jpg
 *.gif
 *.png
-hash.js
-scissor.js
-scissor.min.js
-turn.html4.js
-turn.html4.min.js
-turn.min.js
-zoom.js
-zoom.min.js
-jquery-3.0.0.min.js
-default.css
-html5.css
-html5.js
-jquery.ui.css
-steve-jobs.css
-all.js
-bookshelf.js
-steve-jobs.js
+
 
 ### Windows ###
 # Windows image file caches
